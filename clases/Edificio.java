@@ -2,8 +2,6 @@ package clases;
 
 import java.util.ArrayList;
 
-
-
 public class Edificio {
 	Planta[] edificio = new Planta[4];
 
@@ -14,6 +12,12 @@ public class Edificio {
 
 	public Edificio() {
 		super();
+	}
+
+	public void crearEstructuraCompleta() {
+		for (int i = 0; i < edificio.length; i++) {
+			this.edificio[i] = Utilidades.rellenarPlanta();
+		}
 	}
 
 	public void addEmpresaOptimizado(Empresa e) {
@@ -116,7 +120,7 @@ public class Edificio {
 			}
 		}
 	}
-	
+
 	public void despedirEmpleado() {
 		String nombre = Utilidades.pedirCadena("Introduce el nombre de la empresa");
 		for (int i = 0; i < edificio.length; i++) {
