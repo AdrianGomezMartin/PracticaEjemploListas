@@ -45,7 +45,7 @@ public class Principal {
 				ed1.mostrarPlantasEmpresas();
 				break;
 			case 2:
-
+				System.out.println(ed1.mostrarEmpresaMenosEmpleados());
 				break;
 			case 3:
 

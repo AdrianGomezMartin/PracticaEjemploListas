@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+
 public class Edificio {
 	Planta[] edificio = new Planta[4];
 
@@ -34,5 +36,19 @@ public class Edificio {
 		for (int i = 0; i < edificio.length; i++) {
 			System.out.println(edificio[i]);
 		}
+	}
+
+	public Empresa mostrarEmpresaMenosEmpleados() {
+		Empresa e = null;
+		int empleados = 1000000000;
+		for (int i = 0; i < edificio.length; i++) {
+			ArrayList<Empresa> empresas = edificio[i].getEmpresas();
+			for (int j = 0; j < empresas.size(); j++) {
+				if (empresas.get(j).getNumEmp() < empleados) {
+					e = empresas.get(j);
+				}
+			}
+		}
+		return e;
 	}
 }
