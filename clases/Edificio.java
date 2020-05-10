@@ -2,7 +2,7 @@ package clases;
 
 import java.util.ArrayList;
 
-import sun.security.util.PendingException;
+
 
 public class Edificio {
 	Planta[] edificio = new Planta[4];
@@ -100,6 +100,30 @@ public class Edificio {
 			for (int j = 0; j < empresas.size(); j++) {
 				if (empresas.get(j).getNombre().equalsIgnoreCase(nombre)) {
 					edificio[i].getEmpresas().remove(j);
+				}
+			}
+		}
+	}
+
+	public void contratarEmpleado() {
+		String nombre = Utilidades.pedirCadena("Introduce el nombre de la empresa");
+		for (int i = 0; i < edificio.length; i++) {
+			ArrayList<Empresa> empresas = edificio[i].getEmpresas();
+			for (int j = 0; j < empresas.size(); j++) {
+				if (empresas.get(j).getNombre().equalsIgnoreCase(nombre)) {
+					empresas.get(j).setNumEmp(empresas.get(j).getNumEmp() + 1);
+				}
+			}
+		}
+	}
+	
+	public void despedirEmpleado() {
+		String nombre = Utilidades.pedirCadena("Introduce el nombre de la empresa");
+		for (int i = 0; i < edificio.length; i++) {
+			ArrayList<Empresa> empresas = edificio[i].getEmpresas();
+			for (int j = 0; j < empresas.size(); j++) {
+				if (empresas.get(j).getNombre().equalsIgnoreCase(nombre)) {
+					empresas.get(j).setNumEmp(empresas.get(j).getNumEmp() - 1);
 				}
 			}
 		}

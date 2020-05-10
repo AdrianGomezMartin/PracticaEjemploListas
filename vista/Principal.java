@@ -64,10 +64,10 @@ public class Principal {
 				ed1.eliminarEmpresa();
 				break;
 			case 8:
-
+				ed1.contratarEmpleado();
 				break;
 			case 9:
-
+				ed1.despedirEmpleado();
 				break;
 			case 10:
 				salir = true;
