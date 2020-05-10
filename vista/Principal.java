@@ -58,10 +58,10 @@ public class Principal {
 				ed1.addEmpresaOptimizado(Utilidades.rellenarEmpresa());
 				break;
 			case 6:
-
+				ed1.mostrarEmpresasConMasFacturacionDeLaIntroducida();
 				break;
 			case 7:
-
+				ed1.eliminarEmpresa();
 				break;
 			case 8:
 

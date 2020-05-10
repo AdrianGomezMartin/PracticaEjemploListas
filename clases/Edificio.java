@@ -86,7 +86,20 @@ public class Edificio {
 			ArrayList<Empresa> empresasPlanta = edificio[i].getEmpresas();
 			for (int j = 0; j < empresasPlanta.size(); j++) {
 				if (empresasPlanta.get(i).getFacturacion() >= facturacion) {
+					empresasQueSuperanFacturacion.add(empresasPlanta.get(i));
+				}
+			}
+		}
+		System.out.println(empresasQueSuperanFacturacion);
+	}
 
+	public void eliminarEmpresa() {
+		String nombre = Utilidades.pedirCadena("Introduce el nombre de la empresa");
+		for (int i = 0; i < edificio.length; i++) {
+			ArrayList<Empresa> empresas = edificio[i].getEmpresas();
+			for (int j = 0; j < empresas.size(); j++) {
+				if (empresas.get(j).getNombre().equalsIgnoreCase(nombre)) {
+					edificio[i].getEmpresas().remove(j);
 				}
 			}
 		}
