@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import clases.*;;
+
 public class Principal {
 
 	public static short Menu(String[] opciones) {
@@ -22,7 +23,7 @@ public class Principal {
 		String[] opc = { "Rellenar Plantas", "Mostrar Planta y Empresas", "Mostrar empresa que más factura",
 				"Mostrar empresa con más empleados", "Añadir empresa",
 				"Añadir empresa Optimizado(Sobrescribir la que tenga menos empleados)",
-				"Mostrar empresa con más facturacion de (UI)", "Eliminar Empresa", "Contratar Empleado",
+				"Mostrar empresa con más facturacion de la que se introduzca", "Eliminar Empresa", "Contratar Empleado",
 				"Despedir Empleado", "Salir" };
 		Empresa emp1 = new Empresa("Repsol", 200, 120000.56d, false);
 		Empresa emp2 = new Empresa("Intel", 2000, 125600.87d, true);
@@ -45,16 +46,16 @@ public class Principal {
 				ed1.mostrarPlantasEmpresas();
 				break;
 			case 2:
-				System.out.println(ed1.mostrarEmpresaMenosEmpleados());
+				System.out.println(ed1.mostrarEmpresaMasFacturacion());
 				break;
 			case 3:
-
+				System.out.println(ed1.mostrarEmpresaMasEmpleados());
 				break;
 			case 4:
-
+				ed1.addEmpresa(Utilidades.rellenarEmpresa());
 				break;
 			case 5:
-
+				ed1.addEmpresaOptimizado(Utilidades.rellenarEmpresa());
 				break;
 			case 6:
 

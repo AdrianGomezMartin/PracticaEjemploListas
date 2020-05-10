@@ -2,6 +2,8 @@ package clases;
 
 import java.util.ArrayList;
 
+import sun.security.util.PendingException;
+
 public class Edificio {
 	Planta[] edificio = new Planta[4];
 
@@ -12,16 +14,15 @@ public class Edificio {
 
 	public Edificio() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void addEmpresaOptimizado(Empresa e) {
-		Empresa empresaMenosEmpleados = new Empresa();
+
 		int minEmpleados = 1000000;
 		for (int i = 0; i < edificio.length; i++) {
 			Planta planta = edificio[i];
 			if (planta.getEmpresas().get(i).getNumEmp() < minEmpleados)
-				empresaMenosEmpleados = planta.getEmpresas().get(i);
+				minEmpleados = planta.getEmpresas().get(i).getNumEmp();
 		}
 		for (int i = 0; i < edificio.length; i++) {
 			Planta planta = edificio[i];
@@ -38,17 +39,56 @@ public class Edificio {
 		}
 	}
 
-	public Empresa mostrarEmpresaMenosEmpleados() {
+	public Empresa mostrarEmpresaMasEmpleados() {
 		Empresa e = null;
-		int empleados = 1000000000;
+		int empleados = -1000000000;
 		for (int i = 0; i < edificio.length; i++) {
 			ArrayList<Empresa> empresas = edificio[i].getEmpresas();
 			for (int j = 0; j < empresas.size(); j++) {
-				if (empresas.get(j).getNumEmp() < empleados) {
+				if (empresas.get(j).getNumEmp() > empleados) {
 					e = empresas.get(j);
+					empleados = e.getNumEmp();
 				}
 			}
 		}
 		return e;
+	}
+
+	public Empresa mostrarEmpresaMasFacturacion() {
+		Empresa e = null;
+		double facturacion = -1000000000d;
+		for (int i = 0; i < edificio.length; i++) {
+			ArrayList<Empresa> empresas = edificio[i].getEmpresas();
+			for (int j = 0; j < empresas.size(); j++) {
+				if (empresas.get(j).getFacturacion() > facturacion) {
+					e = empresas.get(j);
+					facturacion = e.getFacturacion();
+				}
+
+			}
+		}
+		return e;
+	}
+
+	public void addEmpresa(Empresa e) {
+		int planta = Utilidades.pedirEntero("Introduzca numero de planta");
+		for (int i = 0; i < edificio.length; i++) {
+			if (edificio[i].getNumeroPlanta() == planta) {
+				edificio[i].addEmpresa(e);
+			}
+		}
+	}
+
+	public void mostrarEmpresasConMasFacturacionDeLaIntroducida() {
+		ArrayList<Empresa> empresasQueSuperanFacturacion = new ArrayList<>();
+		double facturacion = Utilidades.pedirDouble("Introduce la facturacion ");
+		for (int i = 0; i < edificio.length; i++) {
+			ArrayList<Empresa> empresasPlanta = edificio[i].getEmpresas();
+			for (int j = 0; j < empresasPlanta.size(); j++) {
+				if (empresasPlanta.get(i).getFacturacion() >= facturacion) {
+
+				}
+			}
+		}
 	}
 }
