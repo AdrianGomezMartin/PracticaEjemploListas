@@ -3,6 +3,16 @@ package clases;
 public class Edificio {
 	Planta[] edificio = new Planta[4];
 
+	public Edificio(Planta[] edificio) {
+		super();
+		this.edificio = edificio;
+	}
+
+	public Edificio() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public void addEmpresaOptimizado(Empresa e) {
 		Empresa empresaMenosEmpleados = new Empresa();
 		int minEmpleados = 1000000;
@@ -18,6 +28,11 @@ public class Edificio {
 				planta.getEmpresas().add(e);
 			}
 		}
+	}
 
+	public void mostrarPlantasEmpresas() {
+		for (int i = 0; i < edificio.length; i++) {
+			System.out.println(edificio[i]);
+		}
 	}
 }

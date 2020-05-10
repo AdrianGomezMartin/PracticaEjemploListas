@@ -42,7 +42,7 @@ public class Planta {
 
 	@Override
 	public String toString() {
-		return "Planta [numeroPlanta=" + numeroPlanta + ", empresas=" + empresas + "]";
+		return "\nPlanta [numeroPlanta=" + numeroPlanta + ", empresas=" + empresas + "]";
 	}
 	
 }

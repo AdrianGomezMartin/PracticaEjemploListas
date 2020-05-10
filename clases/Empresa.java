@@ -52,7 +52,7 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "Empresa [nombre=" + nombre + ", numEmp=" + numEmp + ", facturacion=" + facturacion + ", tecnologica="
+		return "\nEmpresa [nombre=" + nombre + ", numEmp=" + numEmp + ", facturacion=" + facturacion + ", tecnologica="
 				+ (tecnologica ? "Tecnologica" : "No es Tecnologica") + "]";
 	}
 

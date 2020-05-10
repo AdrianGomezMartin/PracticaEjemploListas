@@ -1,13 +1,11 @@
 package vista;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import clases.Utilidades;
-
+import clases.*;;
 public class Principal {
-	
 
-	
 	public static short Menu(String[] opciones) {
 		for (int i = 0; i < opciones.length; i++) {
 			System.out.println(i + "-.  " + opciones[i].toString());
@@ -26,6 +24,17 @@ public class Principal {
 				"Añadir empresa Optimizado(Sobrescribir la que tenga menos empleados)",
 				"Mostrar empresa con más facturacion de (UI)", "Eliminar Empresa", "Contratar Empleado",
 				"Despedir Empleado", "Salir" };
+		Empresa emp1 = new Empresa("Repsol", 200, 120000.56d, false);
+		Empresa emp2 = new Empresa("Intel", 2000, 125600.87d, true);
+		Empresa emp3 = new Empresa("Zara", 10000, 1400000.26d, false);
+		Empresa emp4 = new Empresa("AMD", 1000, 500001.98d, true);
+		Empresa emp5 = new Empresa("Campsa", 200, 100000.56d, false);
+		Planta p1 = new Planta(1, new ArrayList<Empresa>(Arrays.asList(emp1, emp2)));
+		Planta p2 = new Planta(2, new ArrayList<Empresa>(Arrays.asList(emp3)));
+		Planta p3 = new Planta(3, new ArrayList<Empresa>(Arrays.asList(emp4)));
+		Planta p4 = new Planta(4, new ArrayList<Empresa>(Arrays.asList(emp5)));
+		Edificio ed1 = new Edificio(new Planta[] { p1, p2, p3, p4 });
+
 		boolean salir = false;
 		do {
 			switch (Menu(opc)) {
@@ -33,7 +42,7 @@ public class Principal {
 
 				break;
 			case 1:
-
+				ed1.mostrarPlantasEmpresas();
 				break;
 			case 2:
 
